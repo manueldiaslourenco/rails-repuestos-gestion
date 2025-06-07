@@ -1,0 +1,23 @@
+<% content_for :title, "Nueva factura" %>
+
+<h1>Nueva factura</h1>
+
+<%= form_with(model: @bill, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :date, "Fecha de la venta" %><br>
+    <%= form.date_field :date, value: form.object.date || Date.today, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :invoice_currency, "Moneda de emisión" %><br>
+    <%= form.text_field :invoice_currency %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Guardar Factura" %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to "Volver al listado de facturas.", documents_path %>
+</div>

@@ -1,0 +1,14 @@
+<% content_for :title, "Facturas" %>
+
+<h1>facturas</h1>
+
+<div id="sales">
+  <% @bills.each do |bill| %>
+    <%= render bill %>
+    <p>
+      <%= link_to "Show this sale", bill %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New sale", new_bill_path %>
